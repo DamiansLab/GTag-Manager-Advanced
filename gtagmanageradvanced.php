@@ -13,7 +13,7 @@ class GtagManagerAdvanced extends Module
         // Ορισμός βασικών πληροφοριών module
         $this->name = 'gtagmanageradvanced'; // Όνομα του module (folder name)
         $this->version = '1.1.0';
-        $this->author = 'Damian';
+        $this->author = 'DamiansLab';
         $this->need_instance = 0;
         $this->bootstrap = true; // Χρήση Bootstrap για admin UI
 
@@ -142,3 +142,4 @@ class GtagManagerAdvanced extends Module
         return $this->display(__FILE__, 'displayFooter.tpl');
     }
 }
+
