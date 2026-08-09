@@ -2,7 +2,7 @@
 <module>
   <name>gtagmanageradvanced</name>
   <displayName><![CDATA[GTag Manager Advanced]]></displayName>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
   <description><![CDATA[Υποστήριξη για Google Consent Mode (Advanced) με multilingual banner συγκατάθεσης.]]></description>
   <author><![CDATA[Damian]]></author>
   <tab>analytics_stats</tab>

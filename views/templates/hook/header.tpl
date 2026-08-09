@@ -23,3 +23,9 @@
   gtag('config', '{/literal}{$gtag_id|escape:'html':'UTF-8'}{literal}');
 </script>
 {/literal}
+{if isset($gtag_aw_id) && $gtag_aw_id}
+<script>
+  {* Google Ads destination — για conversion tracking και σωστό click linking *}
+  gtag('config', '{$gtag_aw_id|escape:'html':'UTF-8'}');
+</script>
+{/if}
