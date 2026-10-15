@@ -1,119 +1,76 @@
-<p><span style="color: #17365d;"><span style="font-family: Calibri, serif;"><span style="font-size: xx-large;">GtagManagerAdvanced Module for PrestaShop</span></span></span></p>
-<h1 class="western">Overview</h1>
-<p>GtagManagerAdvanced is a PrestaShop module designed to integrate Google Analytics 4 (GA4) Measurement ID with advanced Google Consent Mode support. It also provides a multilingual cookie consent banner (Greek and English) that can be customized from the admin panel.</p>
-<h1 class="western">Features</h1>
-<ul>
-<li>
-<p>Easy integration of GA4 Measurement ID via admin settings.</p>
-</li>
-<li>
-<p>Multilingual cookie consent banner with customizable text for Greek and English.</p>
-</li>
-<li>
-<p>Automatic insertion of Google Tag Manager script in the website header.</p>
-</li>
-<li>
-<p>Displays cookie consent banner in the footer.</p>
-</li>
-<li>
-<p>Uses Bootstrap for a modern admin configuration UI.</p>
-</li>
-<li>
-<p>Supports Google Consent Mode to respect user privacy choices.</p>
-</li>
-</ul>
-<h1 class="western">Installation</h1>
-<ol>
-<li>
-<p>Upload the `gtagmanageradvanced` module folder to your PrestaShop `/modules/` directory.</p>
-</li>
-<li>
-<p>Go to the PrestaShop Back Office &rarr; Modules &rarr; Module Manager.</p>
-</li>
-<li>
-<p>Find GtagManagerAdvanced and click Install.</p>
-</li>
-<li>
-<p>Upon installation, default settings will be initialized:</p>
-</li>
-<li>
-<p>- GA4 Measurement ID: `G-XXXXXXXXXX`</p>
-</li>
-<li>
-<p>- Cookie banner text in Greek and English with default messages.</p>
-</li>
-</ol>
-<h1 class="western">Configuration</h1>
-<ol start="7">
-<li>
-<p>In Back Office, navigate to Modules &rarr; Module Manager &rarr; GtagManagerAdvanced.</p>
-</li>
-<li>
-<p>Click Configure.</p>
-</li>
-<li>
-<p>Fill in the following fields:</p>
-</li>
-<li>
-<p>- GA4 Measurement ID: Your Google Analytics 4 Measurement ID (e.g., `G-XXXXXXX`).</p>
-</li>
-<li>
-<p>- Cookie Banner Text (Greek): Text displayed in the consent banner for Greek visitors.</p>
-</li>
-<li>
-<p>- Cookie Banner Text (English): Text displayed in the consent banner for English visitors.</p>
-</li>
-<li>
-<p>Click Save to apply changes.</p>
-</li>
-</ol>
-<h1 class="western">How It Works</h1>
-<p>The module injects the Google Analytics tracking script (`gtag.js`) into your website&rsquo;s &lt;head&gt; section using the GA4 Measurement ID you provide. It displays a cookie consent banner at the footer of your site, showing the text in the user&rsquo;s language (Greek or English). Supports Google Consent Mode, allowing you to manage user consent for analytics and advertising cookies. Settings are stored in PrestaShop&rsquo;s configuration system and persist across upgrades and cache clears.</p>
-<h1 class="western">Files Included</h1>
-<ul>
-<li>
-<p>`gtagmanageradvanced.php` &mdash; main module PHP file with all module logic.</p>
-</li>
-<li>
-<p>`views/templates/hook/header.tpl` &mdash; Smarty template for adding `gtag.js` script.</p>
-</li>
-<li>
-<p>`views/templates/hook/displayFooter.tpl` &mdash; Smarty template for cookie consent banner.</p>
-</li>
-<li>
-<p>Other standard PrestaShop module files (`config.xml`, `logo.png`, etc. if applicable).</p>
-</li>
-</ul>
-<h1 class="western">Notes &amp; Recommendations</h1>
-<ul>
-<li>
-<p>Replace the default GA4 Measurement ID (`G-XXXXXXXXXX`) with your actual ID before going live.</p>
-</li>
-<li>
-<p>Customize the cookie banner text to suit your site's privacy policy and compliance requirements.</p>
-</li>
-<li>
-<p>Ensure your theme supports the hooks `displayHeader` and `displayFooter`. If not, you may need to adjust template files.</p>
-</li>
-<li>
-<p>For full GDPR compliance, consider integrating additional consent management tools or extensions if needed.</p>
-</li>
-</ul>
-<h1 class="western">Troubleshooting</h1>
-<ul>
-<li>
-<p>Module not showing banner or scripts? Check that the hooks `displayHeader` and `displayFooter` are properly implemented in your theme templates.</p>
-</li>
-<li>
-<p>Settings not saving? Ensure your user account has sufficient permissions and cache is cleared after saving.</p>
-</li>
-<li>
-<p>Translation issues? The module supports only Greek and English banner texts by default. You can extend it by adding more language fields in the code if necessary.</p>
-</li>
-</ul>
-<h1 class="western">Changelog</h1>
-<p>v1.1.0 &mdash; Initial release with multilingual banner and GA4 integration.</p>
-<h1 class="western">Support &amp; Contact</h1>
-<p>Developed by Damian</p>
-<p>Website: damianslab.gr</p>
-<p>Email: iliaskdamianidis@gmail.com</p>
+# GTag Manager Advanced
+
+**Author:** [DamiansLab](https://damianslab.gr) · **Version:** 1.2.0 · **Compatibility:** PrestaShop 1.7 – 8.x · **Languages:** Greek, English
+
+GTag Manager Advanced integrates Google Analytics 4 with Google Consent Mode (Advanced), shows a multilingual cookie consent banner (Greek and English) and sends GA4 ecommerce `purchase` and Google Ads conversion events with the real order values.
+
+## Features
+
+- GA4 Measurement ID set from the module settings.
+- Google Consent Mode v2 defaults (everything denied until the visitor accepts) and update on consent.
+- Cookie consent banner in the footer, with customizable Greek and English texts.
+- GA4 `purchase` event on the order confirmation page, with value, tax, shipping, currency, items and `transaction_id` (order reference) for deduplication.
+- Optional Google Ads conversion event (Conversion ID and Label).
+- Bootstrap based settings page with the shared DamiansLab header and footer.
+
+## Installation
+
+1. Upload the `gtagmanageradvanced` folder to the `/modules/` directory of your shop.
+2. Back Office → Modules → Module Manager → find **GTag Manager Advanced** and click **Install**.
+3. Click **Configure** and fill in the settings.
+
+## Configuration
+
+| Setting | Description |
+|---|---|
+| GA4 Measurement ID | Your GA4 Measurement ID, e.g. `G-XXXXXXXXXX`. |
+| Cookie Banner Text (Greek / English) | Text shown in the consent banner, per language. |
+| Google Ads Conversion ID | Format `AW-XXXXXXXXXX`. Empty = Google Ads conversion tracking disabled. |
+| Google Ads Conversion Label | Label of the purchase conversion action in Google Ads. |
+
+## Files
+
+```
+gtagmanageradvanced/
+├── gtagmanageradvanced.php        main module class
+├── config.xml                     generated from the class
+├── license.txt                    DamiansLab End User License Agreement
+├── logo.png
+├── upgrade/upgrade-1.2.0.php
+└── views/
+    ├── css/dl-chrome.css          shared DamiansLab header and footer styles
+    └── templates/hook/
+        ├── header.tpl             gtag.js and Consent Mode defaults
+        ├── displayFooter.tpl      consent banner
+        ├── orderConfirmation.tpl  GA4 purchase and Google Ads conversion
+        ├── module_header.tpl      shared header
+        └── module_footer.tpl      shared footer
+```
+
+## Troubleshooting
+
+- No banner or scripts: check that your theme calls the `displayHeader` and `displayFooter` hooks.
+- No purchase events: check that your theme calls the `displayOrderConfirmation` hook.
+- Settings not saving: check the employee permissions and clear the cache.
+
+## Changelog
+
+- 1.2.0: GA4 `purchase` and Google Ads conversion tracking with real order values.
+- 1.1.0: Initial release with multilingual banner and GA4 integration.
+
+## Credits and license
+
+Licensed, not sold, under the DamiansLab End User License Agreement: see [license.txt](license.txt). One license covers one production shop; copying, redistribution and modification are not allowed.
+
+No third-party component is bundled. The module loads Google's `gtag.js` from Google servers; Google is not affiliated with DamiansLab.
+
+## Support and contact
+
+**DamiansLab &mdash; Web Development & 3D Printing**
+Ηλίας Δαμιανίδης · Full stack developer
+
+- Website: <https://damianslab.gr>
+- Contact: <https://damianslab.gr/contact>
+- Email: <iliaskdamianidis@gmail.com>
+- Instagram: <https://instagram.com/damianslab>
+- GitHub: <https://github.com/DamiansLab>

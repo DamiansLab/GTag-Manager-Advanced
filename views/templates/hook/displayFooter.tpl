@@ -1,3 +1,10 @@
+{**
+ * GTag Manager Advanced - Google Consent Mode, GA4 and Google Ads conversion tracking for PrestaShop.
+ *
+ * @author    DamiansLab <https://damianslab.gr>
+ * @copyright 2025 DamiansLab (Ηλίας Δαμιανίδης)
+ * @license   Proprietary, see license.txt (DamiansLab End User License Agreement)
+ *}
 <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;background:#222;color:#fff;padding:1em;z-index:9999;text-align:center;display:none;">
   <span id="cookie-message"></span> 
   <button onclick="acceptCookies()" style="margin-left:15px; cursor:pointer;">Αποδοχή / Accept</button>

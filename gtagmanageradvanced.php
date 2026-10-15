@@ -1,4 +1,11 @@
 <?php
+/**
+ * GTag Manager Advanced - Google Consent Mode, GA4 and Google Ads conversion tracking for PrestaShop.
+ *
+ * @author    DamiansLab <https://damianslab.gr>
+ * @copyright 2025 DamiansLab (Ηλίας Δαμιανίδης)
+ * @license   Proprietary, see license.txt (DamiansLab End User License Agreement)
+ */
 
 // Βεβαιωθείτε ότι το αρχείο εκτελείται μόνο από το PrestaShop περιβάλλον
 if (!defined('_PS_VERSION_')) {
@@ -8,12 +15,17 @@ if (!defined('_PS_VERSION_')) {
 // Κύρια κλάση του module
 class GtagManagerAdvanced extends Module
 {
+    /** Year of the first release, printed in the footer. */
+    const COPYRIGHT_YEAR = '2025';
+
     public function __construct()
     {
         // Ορισμός βασικών πληροφοριών module
         $this->name = 'gtagmanageradvanced'; // Όνομα του module (folder name)
         $this->version = '1.2.0';
         $this->author = 'DamiansLab';
+        $this->author_uri = 'https://damianslab.gr';
+        $this->tab = 'analytics_stats';
         $this->need_instance = 0;
         $this->bootstrap = true; // Χρήση Bootstrap για admin UI
 
@@ -22,6 +34,26 @@ class GtagManagerAdvanced extends Module
         // Εμφανιζόμενες πληροφορίες στο Back Office
         $this->displayName = $this->l('GTag Manager Advanced');
         $this->description = $this->l('Υποστήριξη για Google Consent Mode (Advanced) με multilingual banner συγκατάθεσης. GA4 ecommerce purchase + Google Ads conversion tracking με πραγματικές αξίες παραγγελιών.');
+    }
+
+    /**
+     * Shared DamiansLab header ('header') and footer ('footer') of every back office page of the module.
+     * See DAMIANSLAB-MODULE-STANDARD.md.
+     */
+    public function renderChrome($part, array $vars = array())
+    {
+        $this->context->smarty->assign(array_merge(array(
+            'dl_logo' => $this->_path . 'logo.png',
+            'dl_name' => $this->displayName,
+            'dl_version' => $this->version,
+            'dl_year' => self::COPYRIGHT_YEAR,
+            'dl_tagline' => '',
+            'dl_button' => null,
+            'dl_links' => array(),
+            'dl_disclaimer' => '',
+        ), $vars));
+
+        return $this->display(__FILE__, 'module_' . $part . '.tpl');
     }
 
     // Εκτελείται κατά την εγκατάσταση του module
@@ -67,8 +99,17 @@ class GtagManagerAdvanced extends Module
             $output .= $this->displayConfirmation($this->l('Settings updated successfully.'));
         }
 
-        // Επιστροφή μηνύματος + εμφάνιση της φόρμας
-        return $output . $this->renderForm();
+        // Κοινό header και footer της DamiansLab (DAMIANSLAB-MODULE-STANDARD.md)
+        $this->context->controller->addCSS($this->_path . 'views/css/dl-chrome.css');
+
+        // Επιστροφή header + μηνύματος + φόρμας + footer
+        return $this->renderChrome('header', array(
+                'dl_tagline' => $this->l('Google Consent Mode, GA4 and Google Ads conversion tracking'),
+            ))
+            . $output . $this->renderForm()
+            . $this->renderChrome('footer', array(
+                'dl_disclaimer' => $this->l('It is an independent integration and is not affiliated with Google.'),
+            ));
     }
 
     // Κατασκευή της φόρμας ρυθμίσεων

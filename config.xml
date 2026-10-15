@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module>
-  <name>gtagmanageradvanced</name>
-  <displayName><![CDATA[GTag Manager Advanced]]></displayName>
-  <version>1.2.0</version>
-  <description><![CDATA[Υποστήριξη για Google Consent Mode (Advanced) με multilingual banner συγκατάθεσης.]]></description>
-  <author><![CDATA[Damian]]></author>
-  <tab>analytics_stats</tab>
-  <is_configurable>1</is_configurable>
-  <need_instance>0</need_instance>
-  <limited_countries></limited_countries>
-  <limited_currencies></limited_currencies>
-  <ps_versions_compliancy>
-    <min>1.7.0.0</min>
-    <max>8.9.9</max>
-  </ps_versions_compliancy>
+	<name>gtagmanageradvanced</name>
+	<displayName><![CDATA[GTag Manager Advanced]]></displayName>
+	<version><![CDATA[1.2.0]]></version>
+	<description><![CDATA[Υποστήριξη για Google Consent Mode (Advanced) με multilingual banner συγκατάθεσης. GA4 ecommerce purchase + Google Ads conversion tracking με πραγματικές αξίες παραγγελιών.]]></description>
+	<author><![CDATA[DamiansLab]]></author>
+	<tab><![CDATA[analytics_stats]]></tab>
+	<confirmUninstall><![CDATA[]]></confirmUninstall>
+	<is_configurable>1</is_configurable>
+	<need_instance>0</need_instance>
+	<limited_countries></limited_countries>
 </module>

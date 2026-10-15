@@ -1,3 +1,10 @@
+{**
+ * GTag Manager Advanced - Google Consent Mode, GA4 and Google Ads conversion tracking for PrestaShop.
+ *
+ * @author    DamiansLab <https://damianslab.gr>
+ * @copyright 2025 DamiansLab (Ηλίας Δαμιανίδης)
+ * @license   Proprietary, see license.txt (DamiansLab End User License Agreement)
+ *}
 {literal}
 <script>
   window.dataLayer = window.dataLayer || [];
