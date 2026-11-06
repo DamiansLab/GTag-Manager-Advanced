@@ -71,6 +71,6 @@ No third-party component is bundled. The module loads Google's `gtag.js` from Go
 
 - Website: <https://damianslab.gr>
 - Contact: <https://damianslab.gr/contact>
-- Email: <iliaskdamianidis@gmail.com>
+- Email: <info@damianslab.gr>
 - Instagram: <https://instagram.com/damianslab>
 - GitHub: <https://github.com/DamiansLab>
